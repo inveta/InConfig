@@ -32,7 +32,7 @@ void UInConfigBPLibrary::CheckAndCreateConfig()
 	file->Close();
 
 	FString fileName = ProjectName + "/" + "Config/" + ProjectName + ".ini";
-	GConfig->SetString(TEXT("Staging"), TEXT("+WhitelistConfigFiles"), *fileName, *DefaultGamePath);
+	GConfig->SetString(TEXT("Staging"), TEXT("+BlacklistConfigFiles"), *fileName, *DefaultGamePath);
 }
 
 bool UInConfigBPLibrary::GetConfigString(FString Section, FString Key, FString& value)
