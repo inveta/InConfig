@@ -1,6 +1,8 @@
 // Some copyright should be here...
 
 using UnrealBuildTool;
+using System;
+using System.IO;
 
 public class InConfig : ModuleRules
 {
@@ -49,5 +51,11 @@ public class InConfig : ModuleRules
 				// ... add any modules that your module loads dynamically here ...
 			}
 			);
+
+		string pluginPath = PluginDirectory;
+		string[] dirNameArray = pluginPath.Split("\\");
+		string projectName = dirNameArray[dirNameArray.Length - 3];
+
+		RuntimeDependencies.Add(Path.Combine(PluginDirectory, "../../Config", projectName + ".ini"));
 	}
 }
